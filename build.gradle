@@ -10,9 +10,16 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-//dependencies {
-//    testImplementation ()
-//}
+dependencies {
+   testImplementation (
+           'org.junit.jupiter:junit-jupiter:5.9.0',
+           'com.codeborne:selenide:6.11.2'
+   )
+}
+
+test {
+    useJUnitPlatform()
+}
 
 help {
     doFirst {
@@ -26,4 +33,9 @@ help {
         println "********************************************************************"
         println ""
     }
+}
+
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.9.0'
+    implementation 'org.testng:testng:7.1.0'
 }
