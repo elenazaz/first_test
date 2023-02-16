@@ -1,12 +1,10 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxTests {
 
@@ -42,5 +40,12 @@ public class TextBoxTests {
         $("#output #currentAddress").shouldHave(text("Address1"));
         $("#output #permanentAddress").shouldHave(text("Address2"));
 
+        // как еще можно обращаться к элементам
+        $x("//*[id=email]").setValue("1");
+        //обращение по классу
+        $("class=mb-1").setValue("123");
+        $(".mb-1").setValue("123");
+        $(".mb-1,mt-4 row").setValue("123");
+        $x("//input[@class='mb-1'][@class='mt-4 row']");
     }
 }
